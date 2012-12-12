@@ -32,6 +32,10 @@ Run `bundle install` from the command line:
 
     bundle install
 
+It is possible that v8 engine libraries need to be installed
+
+    brew install v8
+
 Then run the boostrap generator to add Bootstrap includes into your assets:
 
     rails generate bootstrap:install less
