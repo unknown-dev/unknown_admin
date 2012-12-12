@@ -1,0 +1,9 @@
+<div class="page-header">
+  <h1><%=t '.title', :default => resource_class.model_name.human.pluralize %></h1>
+</div>
+<%= render :partial=>"search_field" %>
+<div id="list" >
+  <%= render :partial=>"list" %>
+</div>
+<%= will_paginate collection %>
+<%= render :partial=>"list_actions" %>

@@ -1,0 +1,9 @@
+<p><span class="badge"><%= collection.total_entries %> Records found</span></p>
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <%= render :partial=>"list_header" %>
+  </thead>
+  <tbody>
+    <%= render :partial=>"list_item",collection: collection %>
+  </tbody>
+</table>

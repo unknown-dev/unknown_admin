@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin,resource], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :id, disabled:true %>
+  <% show_fields.each do |field| %>
+    <%= f.input field %>
+  <% end %>
+  <%= change_info_for resource %>
+  <%= form_actions f,resource%>
+<% end %>

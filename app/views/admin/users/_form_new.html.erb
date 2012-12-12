@@ -1,0 +1,66 @@
+<%= form_for(@user,:html=>{:class=>"form-inline"}) do |f| %>
+<% if @user.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+	<ul>
+		<% @user.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<ul id="myTab" class="nav nav-tabs">
+	<li class="active">
+		<a href="#main" data-toggle="tab">Main Setup</a>
+	</li>
+	
+</ul>
+<div id="userTabContent" class="tab-content">
+	<div class="tab-pane fade in active" id="main">
+		<div class="control-group">
+			<%= f.label :login_id,:class=>"control-label"%>
+			<div class="controls">
+			<%= f.text_field :login_id %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :locale,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.select(:pref_locale,Locale.active.map { |locale| [locale.language_name, locale.locale_id] }) %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :status,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.select(:status,[["active",'A'],["inactive",'I']]) %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :salutation,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.select(:salutation,Salutation.all.map { |sal| [sal.title, sal.id] })%>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :first_name,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.text_field :first_name %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :last_name,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.text_field :last_name %>
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+<%= form_actions f,@user%>
+
+
+
+<% end %> 

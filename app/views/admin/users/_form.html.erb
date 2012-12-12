@@ -1,0 +1,102 @@
+<%= form_for([:admin,@user]) do |f| %>
+<ul id="myTab" class="nav nav-tabs">
+	<li class="active">
+		<a href="#main" data-toggle="tab">Main Setup</a>
+	</li>
+	<li>
+		<a href="#roles" data-toggle="tab">Roles</a>
+	</li>
+</ul>
+<div id="userTabContent" class="tab-content">
+	<div class="tab-pane fade in active" id="main">
+		<div class="control-group">
+			<%= f.label :id,:class=>"control-label"%>
+			<div class="controls">
+			<%= f.text_field :id,disabled:true %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :email,:class=>"control-label"%>
+			<div class="controls">
+			<%= f.text_field :email %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :username,:class=>"control-label"%>
+			<div class="controls">
+			<%= f.text_field :username %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :gender,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.select(:gender,[[:male,:male],[:female,:female]]) %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :preferred_locale,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.select(:preferred_locale_id,Locale.localizations.map { |locale| [locale.language_name, locale.id] }) %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :active,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.check_box :active %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :first_name,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.text_field :first_name %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :last_name,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.text_field :last_name %>
+			</div>
+		</div>
+		<% if params[:action]=="new" %>
+		<div class="control-group">
+			<%= f.label :password,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.password_field :password %>
+			</div>
+		</div>
+		<div class="control-group">
+			<%= f.label :password_confirmation,:class=>"control-label" %>
+			<div class="controls">
+			<%= f.password_field :password_confirmation %>
+			</div>
+		</div>
+		<% end %>
+		<div class="control-group">
+            <%= f.label :country, :class => 'control-label' %>
+            <div class="controls">
+                 <%= f.collection_select :country_id, Country.order(:name), :id, :name, {}, {class:"chosen_field"} %>
+            </div>
+        </div>
+	</div>
+	<div class="tab-pane fade" id="membership">
+		
+		<div class="control-group">
+			
+		</div>
+	</div>
+	<div class="tab-pane fade" id="roles">
+		<h1>System Roles</h1>
+		<div class="control-group">
+			<%= f.label :roles,:class=>"control-label" %>
+			<div class="controls">
+				<%= f.collection_select :role_ids, Role.order(:name), :id, :name, {}, {multiple: true,class:"chosen_field"} %>
+			</div>
+		</div>
+	</div>
+</div>
+<%= change_info_for @user %>
+<%= form_actions f,@user %>
+
+
+
+<% end %> 
