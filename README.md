@@ -14,15 +14,14 @@ Enjoy.
 ### Rails
 
 In your Gemfile:
-```ruby
-#required starting Rails 3.2.9
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
-####
 
-gem 'unknown_admin',:git=>"http://gitlab.unknown.de/unknown_admin.git"
-```
+#required for bootstrap (starting Rails 3.2.9)
+  gem "therubyracer"
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "twitter-bootstrap-rails"
+#add the `unknown-admin` gem
+  gem 'unknown_admin',:git=>"http://gitlab.unknown.de/unknown_admin.git"
+
 
 ## Installation
 
