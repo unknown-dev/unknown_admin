@@ -7,9 +7,9 @@ require "unknown_admin/version"
 Gem::Specification.new do |s|
   s.name        = "unknown_admin"
   s.version     = UnknownAdmin::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
+  s.authors     = ["Stefan Kahlert","Dirk Dresch"]
+  s.email       = ["kahlert@unknown.de","dresch@unknown.de"]
+  s.homepage    = "http://www.unknown.de"
   s.summary     = "TODO: Summary of UnknownAdmin."
   s.description = "TODO: Description of UnknownAdmin."
 
