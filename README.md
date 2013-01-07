@@ -45,7 +45,9 @@ Also run the unknown_admin generator to install the asset files for the admin-ba
     rails generate unknown_admin:install
 
 Add following line to one of your initializers, if you want to use strong parameters
+
     ActiveRecord::Base.send(:include, ActiveModel::ForbiddenAttributesProtection)
 
 You can generate an admin controller by using... model must exist for this to work!
+
     rails g unknown_admin:controller ModelName
