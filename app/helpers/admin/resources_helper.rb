@@ -1,47 +1,41 @@
 module Admin
   module ResourcesHelper
-    def sortable(column, title = nil)
-      title ||= column.titleize
-      css_class = column == sort_column ? "current #{sort_direction}" : nil
-      direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
-      link_to title, {:sort => column, :direction => direction}, {:class => css_class}
-    end
-    def is_active?(page)
-      "active" if current_page?(page)
-    end
-    def is_scope?(controller)
-      "active" if params[:controller]==controller
-    end
-    
-    def change_info_for(item)
-      if item.creator.present? or item.editor.present?
-        render partial:"admin/shared/change_info",:locals=>{:item=>item}
-      end
-    end
-      
-    def render_user_tokens(users)
-      render template:"admin/users/token_fields.json.rabl",:locals=>{:users=>users}
-    end
-    
-    def form_actions(form,current)
-      render :partial=>"admin/shared/form_actions",:locals=>{:f=>form,:theclass=>current.class}
-    end
-
-
-    def date_picker(f,object,object_name, options = {},&block)
-      content_tag :div,class: "input-append date",data: {date: object.send(object_name), "date-format"=>"yyyy-mm-dd"} do
-        input= f.text_field(object_name, options = {})
-        span = content_tag :span,class:"add-on" do
-          content_tag :i,"", class:"icon-th icon-white"
+    def resolve_field(resource,list_field_item)
+      resolved = list_field_item.class.to_s
+      case list_field_item
+      when Symbol,String
+        val = resource.send(list_field_item)
+        case val
+        when ActiveSupport::TimeWithZone
+          resolved =l(val,format: :long)
+        else
+          resolved = val
         end
-        input+span
+      when Hash
+        rel = resource.send(list_field_item.first.first)
+        resolved = rel.send(list_field_item.first.last)
+      end
+      resolved
+    end
+    def resolve_field_name(list_field_item)
+      case list_field_item
+      when Symbol,String
+        resource_class.human_attribute_name(list_field_item)
+      when Hash
+        resource_class.human_attribute_name(list_field_item.first.first)
       end
     end
 
+    def link_to_add_fields(name, f, type)
+      new_object = f.object.send "build_#{type}"
+      id = "new_#{type}"
+      fields = f.send("#{type}_fields", new_object, child_index: id) do |builder|
+        render(type.to_s + "_fields", f: builder)
+      end
+      link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
+    end
 
 
     
-
-
   end
 end

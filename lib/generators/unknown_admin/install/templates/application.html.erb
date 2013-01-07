@@ -3,8 +3,8 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale = 1" />
 		<title>B2kAdmin: <%= "#{params[:controller]}-#{params[:action]}" %></title>
-		<%= stylesheet_link_tag    "admin/application", :media => "all" %>
-		<%= javascript_include_tag "admin/application" %>
+		<%= stylesheet_link_tag    "admin/admin", :media => "all" %>
+		<%= javascript_include_tag "admin/admin" %>
 		<style type="text/css" title="text/css">
 		<%= current_style %>
 		</style>
@@ -17,133 +17,11 @@
 				<div class="navbar-inner">
 					<div class="container">
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-						<%= link_to "B2K Admin", admin_root_url,class:"brand" %>
-						<div class="nav-collapse">
-							<ul class="nav">
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<b class='caret'></b></a>
-									<ul class="dropdown-menu">
-										<% if allow? "admin/roles","index" %>
-										<li>
-											<%= link_to "Role Maintenance",admin_roles_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/locales","index" %>
-										<li>
-											<%= link_to "Locale Maintenance",admin_locales_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/countries","index" %>
-										<li>
-											<%= link_to "Countries Maintenance",admin_countries_path %>
-										</li>
-										<% end %>
-										
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Customer Setup<b class='caret'></b></a>
-									<ul class="dropdown-menu">
-										<% if allow? "admin/users","index" %>
-										<li>
-											<%= link_to "User Administration", admin_users_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/domains","index" %>
-										<li>
-											<%= link_to "Portal Administration", admin_domains_path %>
-										</li>
-										<% end %>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portal Management<b class='caret'></b></a>
-									<ul class="dropdown-menu">
-										<% if allow? "admin/groups","index" %>
-										<li>
-											<%= link_to "Group Setup", admin_groups_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/html_templates","index" %>
-										<li>
-											<%= link_to "HTML Templates", admin_html_templates_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/data_store_folders","index" %>
-										<li>
-											<%= link_to "File Management", admin_data_store_folders_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/data_stores","index" %>
-										<li>
-											<%= link_to "File Storage Management", admin_data_stores_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/competency_modules","index" %>
-										<li>
-											<%= link_to "Competency Setup", admin_competency_modules_path %>
-										</li>
-										<% end %>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents<b class='caret'></b></a>
-									<ul class="dropdown-menu">
-										<% if allow? "admin/media_formats","index" %>
-										<li>
-											<%= link_to "Media Formats", admin_media_formats_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/media_sources","index" %>
-										<li>
-											<%= link_to "Media Sources", admin_media_sources_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/media_categories","index" %>
-										<li>
-											<%= link_to "Categories/Topics", admin_media_categories_path %>
-										</li>
-										<% end %>
-										<% if allow? "admin/media_resources","index" %>
-										<li>
-											<%= link_to "Media Resources", admin_media_resources_path %>
-										</li>
-										<% end %>
-									</ul>
-								</li>
+						<%= link_to "Unknown Admin", admin_root_url,class:"brand" %>
+						
+								
+							
 
-							</ul>
-							<% if user_signed_in? %>
-							<ul class="nav pull-right">
-								<% if current_domain %>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong>Current Portal:</strong> <%= current_domain.name %><b class='caret'></b></a>
-									<ul class="dropdown-menu">
-										<% @current_user.domains.each do |domain| %>
-										<li><%= link_to domain.name,admin_root_url(subdomain: domain.subdomain) %></li>
-										<% end %>
-									</ul>
-								</li>
-								<% else %>
-								
-								<% end %>
-								<li class="divider-vertical"></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class='caret'></b></a>
-									<ul class="dropdown-menu">
-										
-										<li class="divider"></li>
-										<li>
-											<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-										</li>
-									</ul>
-								</li>
-								
-								
-							</ul>
-							<% end %>
-
-						</div><!-- /.nav-collapse -->
 					</div>
 				</div><!-- /navbar-inner -->
 			</div>
@@ -153,11 +31,7 @@
 					<%= yield %>
 				</div>
 
-				<div class="span3 hidden">
-					<div id="detailColumn" >
-					<%= yield :detail_column %>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 		<div id="modal_container"></div>
