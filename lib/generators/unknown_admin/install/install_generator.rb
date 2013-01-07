@@ -18,6 +18,10 @@ module UnknownAdmin
           copy_file "admin.css", "app/assets/stylesheets/admin/admin.css"
         end
 
+        unless File.exist?('app/views/layouts/admin/application.html.erb')
+          copy_file "admin.css", "app/views/layouts/admin/application.html.erb"
+        end
+
       end
     end
       
