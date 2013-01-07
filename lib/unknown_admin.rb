@@ -11,5 +11,6 @@ module UnknownAdmin
     require "will_paginate"
     require "chosen-rails"
     require "ransack"
+    require "simple_form"
   end
 end

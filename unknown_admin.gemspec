@@ -32,11 +32,13 @@ Gem::Specification.new do |s|
   s.add_dependency('bootstrap-will_paginate', '~> 0.0.9')
   s.add_dependency('will_paginate', '~> 3.0')
 
-
   # token field support
   #gem.add_dependency('jquery-rails', '~> 2.1')
   s.add_dependency('chosen-rails', '~> 0.9')
 
   #search forms
   s.add_dependency("ransack", '~> 0.7.0')
+
+  #simple forms
+  s.add_dependency("simple_form",'~> 2.0')
 end

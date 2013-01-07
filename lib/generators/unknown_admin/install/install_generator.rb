@@ -19,9 +19,16 @@ module UnknownAdmin
         end
 
         unless File.exist?('app/views/layouts/admin/application.html.erb')
-          copy_file "admin.css", "app/views/layouts/admin/application.html.erb"
+          copy_file "application.html.erb", "app/views/layouts/admin/application.html.erb"
         end
 
+        unless File.exist?('app/controllers/admin/admin_controller.rb')
+          copy_file "admin_controller.rb", "app/controllers/admin/admin_controller.rb"
+        end
+
+        unless File.exist?('app/controllers/admin/resources_controller.rb')
+          copy_file "resources_controller.rb", "app/controllers/admin/resources_controller.rb"
+        end
       end
     end
       
