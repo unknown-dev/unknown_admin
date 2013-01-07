@@ -51,3 +51,7 @@ Add following line to one of your initializers, if you want to use strong parame
 You can generate an admin controller by using... model must exist for this to work!
 
     rails g unknown_admin:controller ModelName
+
+If you do want to add your routes manually, use this:
+
+    rails g unknown_admin:controller ModelName --skip-routes
