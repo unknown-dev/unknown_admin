@@ -17,28 +17,14 @@ module UnknownAdmin
       end
 
       def update_routes
-        line = "namespace :admin"
-        unless File.read('config/routes.rb').match(/^\s*#{Regexp.escape(line)}/i)
-          route_namespace "#{line} do  end"
-        end
-        route_into "resources :#{file_name}",:admin
-=begin
-  
-
-  
-        line = "namespace :admin do"
-        found = gsub_file 'config/routes.rb', /$\s*(#{Regexp.escape(line)})/mi do |match|
-          "#{match}\n    resources :#{file_name}\n"
-        end
-
-        puts "returnvalue is #{found.to_s}"
-        unless found 
-          line = "routes.draw do"
-          gsub_file 'config/routes.rb', /(#{Regexp.escape(line)})/mi do |match|
-            "#{match}\n  namespace :admin do\n    resources :#{file_name}\n  end\n"
+        unless options.skip_routes
+          line = "namespace :admin"
+          
+          unless File.read('config/routes.rb').match(/^\s*#{Regexp.escape(line)}/i)
+            route_namespace "#{line} do  end"
           end
+          route_into "resources :#{file_name}",:admin
         end
-=end
       end
 
       private
