@@ -1,0 +1,10 @@
+<div class="field">
+  <%= f.attribute_fields do |a| %>
+    <%= a.attribute_select({associations: [:media_source]},{class:"chosen_field"}) %>
+  <% end %>
+  <%= f.predicate_select({},{class:"chosen_field"}) %>
+  <%= f.value_fields do |v| %>
+    <%= v.text_field :value %>
+  <% end %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+</div>

@@ -1,8 +1,5 @@
-<%= simple_form_for [:admin,resource], :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :id, disabled:true %>
-  <% show_fields.each do |field| %>
-    <%= f.input field %>
-  <% end %>
+<%= simple_form_for [:admin]+association_chain+[resource], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= render :partial=>"form_fields",locals:{f:f} %>
   <%= change_info_for resource %>
-  <%= form_actions f,resource%>
+  <%= render :partial=>"form_actions",:locals=>{f: f, resource: resource} %>
 <% end %>

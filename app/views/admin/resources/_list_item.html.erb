@@ -1,22 +1,12 @@
 <tr>
   <% list_fields.each_with_index do |field,index| %>
     <% if index == 0 %>
-      <td><%= link_to list_item.send(field), resource_path(list_item) %></td>
+      <td><%= link_to resolve_field(list_item,field), resource_path(list_item) %></td>
     <% else %>
-      <td><%= list_item.send(field) %></td>
+      <td><%= resolve_field(list_item,field) %></td>
     <% end %>
   <% end %>
   <td>
-    <% if allow? "admin/#{resource_class.model_name.pluralize.underscore}","edit" %>
-    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_resource_url(list_item), :class => 'btn btn-mini' %>
-    <% end %>
-    <% if allow? "admin/#{resource_class.model_name.pluralize.underscore}","destroy" %>                
-    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                resource_path(list_item),
-                :method => :delete,
-                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                :class => 'btn btn-mini btn-danger' %>
-    <% end %>
+    <%= render partial: "list_item_actions",locals:{resource:list_item} %>
   </td>
 </tr>

@@ -1,6 +1,6 @@
 <tr>
   <% list_fields.each do |field| %>
-    <th><%= sort_link @search, field, resource_class.human_attribute_name(field) %></th>
+    <th><%= sort_link @search, field, resolve_field_name(field) %></th>
   <% end %>
   <th><%=t '.actions', :default => t("helpers.actions") %></th>
 </tr>
