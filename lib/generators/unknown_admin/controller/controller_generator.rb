@@ -10,7 +10,7 @@ module UnknownAdmin
 
       def create_controller
 
-        template "standard_controller.rb", 'app/controller/admin/#{file_name}_controller.rb'
+        template "standard_controller.rb", "app/controller/admin/#{file_name}_controller.rb"
 
 
       end
