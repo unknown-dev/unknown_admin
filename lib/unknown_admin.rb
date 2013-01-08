@@ -12,5 +12,6 @@ module UnknownAdmin
     require "chosen-rails"
     require "ransack"
     require "simple_form"
+    require "strong_parameters"
   end
 end

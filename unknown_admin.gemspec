@@ -41,4 +41,7 @@ Gem::Specification.new do |s|
 
   #simple forms
   s.add_dependency("simple_form",'~> 2.0')
+
+  # rails 4 features
+  s.add_dependency("strong_parameters", '~> 0.1')
 end
