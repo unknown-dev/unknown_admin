@@ -1,5 +1,4 @@
 <%= simple_form_for [:admin]+association_chain+[resource], :html => { :class => 'form-horizontal' } do |f| %>
   <%= render :partial=>"form_fields",locals:{f:f} %>
-  <%= change_info_for resource %>
   <%= render :partial=>"form_actions",:locals=>{f: f, resource: resource} %>
 <% end %>
