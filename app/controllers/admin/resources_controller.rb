@@ -2,8 +2,7 @@ require 'inherited_resources'
 module Admin
   class ResourcesController < AdminController
 
-    inherit_resources
-
+    inherit_resources    
 
     helper_method :list_fields
     def list_fields
@@ -28,6 +27,7 @@ module Admin
       update! { collection_path }
     end
 
+    
 
     protected
 

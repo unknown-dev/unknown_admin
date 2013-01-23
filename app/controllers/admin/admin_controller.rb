@@ -21,10 +21,7 @@ module Admin
 
     private
       def ajax_request
-        
-        request.xhr? ? "admin/ajax" : "admin/application"
-        
-        
+        request.xhr? ? "admin/ajax" : "admin/application"    
       end
 
       ## TODO: Fix this
