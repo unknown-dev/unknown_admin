@@ -1,4 +1,4 @@
-<tr>
+<tr class="list-item"  id="<%= dom_id(list_item) %>">
   <% list_fields.each_with_index do |field,index| %>
     <% if index == 0 %>
       <td><%= link_to resolve_field(list_item,field), resource_path(list_item) %></td>

@@ -1,5 +1,9 @@
 <p><span class="badge"><%= collection.total_entries %> Records found</span></p>
-<table class="table table-striped table-bordered table-condensed">
+<% if resource_class.column_names.include?('position') %>
+<table id="sortable_list" class="table table-striped table-bordered table-condensed" data-update-url="<%= list_sort_resources_path %>">
+<% else %>
+<table id="sortable_list" class="table table-striped table-bordered table-condensed">
+<% end %>
   <thead>
     <%= render :partial=>"list_header" %>
   </thead>
