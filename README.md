@@ -23,7 +23,7 @@ In your Gemfile:
 
 ### Add the `unknown-admin` gem
 
-    gem 'unknown_admin',:git=>"http://gitlab.unknown.de/unknown_admin.git"
+    gem 'unknown_admin'
 
 
 ## Installation
