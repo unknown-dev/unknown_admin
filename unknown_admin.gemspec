@@ -22,19 +22,12 @@ Gem::Specification.new do |s|
   #inherited resources
   s.add_dependency('inherited_resources', '~> 1.3')
   s.add_dependency('has_scope', '~> 0.5.0')
-  #bootstrap suoppirt
-  ####remove as soon as bootstrap is fixed under rails>=3.2.9
-  s.add_dependency('less-rails')
-  s.add_dependency('therubyracer')
   ###########
-  s.add_dependency('twitter-bootstrap-rails', '~> 2.1')
-  s.add_dependency('bootstrap-datepicker-rails', '~> 0.6')
+  s.add_dependency('bootstrap-sass', '~> 2.3')
   s.add_dependency('bootstrap-will_paginate', '~> 0.0.9')
   s.add_dependency('will_paginate', '~> 3.0')
 
-  # token field support
-  #gem.add_dependency('jquery-rails', '~> 2.1')
-  s.add_dependency('chosen-rails', '~> 0.9')
+
 
   #search forms
   s.add_dependency("ransack", '~> 0.7.0')

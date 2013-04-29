@@ -6,7 +6,7 @@ module UnknownAdmin
 
       source_root File.expand_path("../templates", __FILE__)
       desc "This generator creates a slim 'inherited-resources' controller"
-      class_option  :skip_routes, :type => :boolean, :default => "false",:desc=>"Skip adding resource/namespace to route file"
+      class_option  :skip_routes, :type => :boolean, :default => false,:desc=>"Skip adding resource/namespace to route file"
       #argument :stylesheets_type, :type => :string, :default => 'less', :banner => '*less or static'
 
       def create_controller

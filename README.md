@@ -15,11 +15,9 @@ Enjoy.
 
 In your Gemfile:
 
-### Required for bootstrap (starting Rails 3.2.9)
+### Add to your asset-block:
 
-    gem "therubyracer"
-    gem "less-rails"
-    gem "twitter-bootstrap-rails"
+    gem 'bootstrap-sass'
 
 ### Add the `unknown-admin` gem
 
@@ -35,10 +33,6 @@ Run `bundle install` from the command line:
 It is possible that v8 engine libraries need to be installed
 
     brew install v8
-
-Then run the boostrap generator to add Bootstrap includes into your assets:
-
-    rails generate bootstrap:install less
 
 Also run the unknown_admin generator to install the asset files for the admin-backend
 

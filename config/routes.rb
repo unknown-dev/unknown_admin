@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do 
-    resources :users do
+    resources :home,only:[:index] do
     
     end
-    root :to =>"users#index"
+    root :to =>"home#index"
   end
 end

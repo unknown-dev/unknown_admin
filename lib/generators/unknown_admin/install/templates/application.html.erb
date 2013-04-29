@@ -2,36 +2,22 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale = 1" />
-		<title>B2kAdmin: <%= "#{params[:controller]}-#{params[:action]}" %></title>
+		<title>UnknownAdmin: <%= "#{params[:controller]}-#{params[:action]}" %></title>
 		<%= stylesheet_link_tag    "admin/admin", :media => "all" %>
 		<%= javascript_include_tag "admin/admin" %>
 		<style type="text/css" title="text/css">
-		<%= current_style %>
 		</style>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
 		<div class="container">
 			
-			<div class="navbar navbar-fixed-top">
-				<div class="navbar-inner">
-					<div class="container">
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
-						<%= link_to "Unknown Admin", admin_root_url,class:"brand" %>
-						
-								
-							
-
-					</div>
-				</div><!-- /navbar-inner -->
-			</div>
+			
 			<%= bootstrap_flash %>
 			<div class="row">
 				<div class="span12">
 					<%= yield %>
 				</div>
-
-				
 			</div>
 		</div>
 		<div id="modal_container"></div>
