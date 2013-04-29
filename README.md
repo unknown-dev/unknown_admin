@@ -23,7 +23,6 @@ In your Gemfile:
 
     gem 'unknown_admin'
 
-
 ## Installation
 
 Run `bundle install` from the command line:
