@@ -1,6 +1,11 @@
 <ul class="breadcrumb">
   <li><%= link_to "Home",admin_root_url %><span class="divider">/</span></li>
-  <% association_chain[0..-1].each do |ancestor| %>
-    <li><%= link_to ancestor.class.model_name.human.pluralize,[:admin]+association_chain[0..(association_chain.find_index(ancestor)-(association_chain.count+1))]+[ancestor.class] %><span class="divider">/</span></li>
+  <% if association_chain.count > 0 %>
+    <li><%= link_to association_chain[0].class.model_name.human.pluralize,[:admin]+[association_chain[0].class] %><span class="divider">/</span></li>
+    <% association_chain[1..-1].each do |ancestor| %>
+      <li><%= link_to ancestor.class.model_name.human.pluralize,[:admin]+association_chain[0..(association_chain.find_index(ancestor))-1]+[ancestor.class] %><span class="divider">/</span></li>
+    <% end %>
+
   <% end %>
+  <li><%= link_to resource_class.model_name.human.pluralize,[:admin]+association_chain+[resource_class] %><span class="divider"></span></li>
 </ul>

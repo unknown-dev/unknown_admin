@@ -16,8 +16,6 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.9"
-
 
   #inherited resources
   s.add_dependency('inherited_resources', '~> 1.3')
@@ -36,5 +34,5 @@ Gem::Specification.new do |s|
   s.add_dependency("simple_form",'~> 2.0')
 
   # rails 4 features
-  s.add_dependency("strong_parameters", '~> 0.1')
+  #s.add_dependency("strong_parameters", '~> 0.1')
 end
