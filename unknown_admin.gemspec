@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "UnknownAdmin is yet another Admin-Tools for Rails"
   s.description = "UnknownAdmin makes it easy to create a zero-configuratin admin-tool for your models, but still allows a lot of cusomizations to make it fit your needs."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
 
