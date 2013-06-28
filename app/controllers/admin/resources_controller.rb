@@ -33,7 +33,11 @@ module Admin
 
       def collection
         @search = end_of_association_chain.search(params[:q])
-        get_collection_ivar || set_collection_ivar(@search.result.paginate(:page => params[:page], :per_page => per_page))
+        unless params[:all_pages]
+          get_collection_ivar || set_collection_ivar(@search.result.paginate(:page => params[:page], :per_page => per_page))
+        else
+          get_collection_ivar || set_collection_ivar(@search.result)
+        end
       end
      
       def per_page
