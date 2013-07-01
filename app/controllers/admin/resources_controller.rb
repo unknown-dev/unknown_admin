@@ -32,7 +32,20 @@ module Admin
     protected
 
       def collection
-        @search = end_of_association_chain.search(params[:q])
+        if params[:rquery].nil?
+          if end_of_association_chain.column_names.include? "position"
+            params[:rquery] = {s:"position asc"}
+          else
+            params[:rquery] = {s:"id desc"}
+          end
+        end
+
+        if params[:q].present? && search_query_field
+          @search = end_of_association_chain.where("#{search_query_field} LIKE ?","#{params[:q]}%").search(params[:rquery])
+        else
+          @search = end_of_association_chain.search(params[:rquery])
+        end
+
         unless params[:all_pages]
           get_collection_ivar || set_collection_ivar(@search.result.paginate(:page => params[:page], :per_page => per_page))
         else

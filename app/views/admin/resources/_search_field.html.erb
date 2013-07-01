@@ -1,7 +1,7 @@
 <% if search_fields.count > 0 %>
 <div class="row">
   <div class="span9 well">
-  <%= search_form_for [:admin,@search] do |f| %>
+  <%= search_form_for [:admin,@search], :as => :rquery do |f| %>
     <div class="controls">
       <label for="search">Search: 
         <div class="input-append">
