@@ -18,11 +18,11 @@ Gem::Specification.new do |s|
 
 
   #inherited resources
-  s.add_dependency('inherited_resources', '~> 1.3')
+  s.add_dependency('inherited_resources', '~> 1.4')
   s.add_dependency('has_scope', '~> 0.5.0')
   ###########
-  s.add_dependency('bootstrap-sass', '~> 2.3')
-  s.add_dependency('bootstrap-will_paginate', '~> 0.0.9')
+  s.add_dependency('bootstrap-sass', '~> 3.0')
+  #s.add_dependency('bootstrap-will_paginate', '~> 0.0.9')
   s.add_dependency('will_paginate', '~> 3.0')
 
 
@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_dependency("ransack", '~> 0.7.0')
 
   #simple forms
-  s.add_dependency("simple_form",'~> 2.0')
+  s.add_dependency("simple_form",'~> 3.0')
 
   # rails 4 features
   #s.add_dependency("strong_parameters", '~> 0.1')
