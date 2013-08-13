@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   #inherited resources
   s.add_dependency('inherited_resources', '~> 1.4')
-  s.add_dependency('has_scope', '~> 0.5.0')
+  s.add_dependency('has_scope', '~> 0.6.0')
   ###########
   s.add_dependency('bootstrap-sass', '~> 3.0')
   #s.add_dependency('bootstrap-will_paginate', '~> 0.0.9')
@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
 
 
   #search forms
-  s.add_dependency("ransack", '~> 0.7.0')
+  s.add_dependency("ransack", '~> 0.7.3')
 
   #simple forms
   s.add_dependency("simple_form",'~> 3.0')
