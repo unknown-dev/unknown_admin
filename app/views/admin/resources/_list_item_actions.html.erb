@@ -1,8 +1,8 @@
-<% if allow? "admin/#{resource_class.model_name.pluralize.underscore}","edit" %>
+<% if allow? "admin/#{resource_class.model_name.to_s.pluralize.underscore}","edit" %>
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
             edit_resource_url(resource), :class => 'btn btn-mini' %>
 <% end %>
-<% if allow? "admin/#{resource_class.model_name.pluralize.underscore}","destroy" %>                
+<% if allow? "admin/#{resource_class.model_name.to_s.pluralize.underscore}","destroy" %>                
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
             resource_path(resource),
             :method => :delete,

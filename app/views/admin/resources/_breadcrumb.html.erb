@@ -1,5 +1,5 @@
 <ul class="breadcrumb">
-  <li><%= link_to "Home",admin_root_url %><span class="divider">/</span></li>
+  <li><%= link_to "Home",admin_root_url %><span class="divider"></span></li>
   <% if association_chain.count > 0 %>
     <li><%= link_to association_chain[0].class.model_name.human.pluralize,[:admin]+[association_chain[0].class] %><span class="divider">/</span></li>
     <% association_chain[1..-1].each do |ancestor| %>

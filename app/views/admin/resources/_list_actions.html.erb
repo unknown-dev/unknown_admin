@@ -1,4 +1,4 @@
-<% if allow? "admin/#{resource_class.model_name.pluralize.underscore}","new" %>
+<% if allow? "admin/#{resource_class.model_name.to_s.pluralize.underscore}","new" %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_resource_path(:admin),
             :class => 'btn btn-primary' %>

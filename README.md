@@ -15,13 +15,19 @@ Enjoy.
 
 In your Gemfile:
 
-### Add to your asset-block:
+### Make sure all Rails4 dependencies are met:
 
-    gem 'bootstrap-sass'
+    ## RAILS4 Dependencies
+		gem "bootstrap-sass",github:"thomas-mcdonald/bootstrap-sass",branch:"3"
+		gem "inherited_resources",github:"josevalim/inherited_resources",branch:"master"
+		gem "simple_form",github:"plataformatec/simple_form",branch:"master"
+		gem "has_scope",github:"plataformatec/has_scope",branch:"master"
+		gem "ransack", :git => "git://github.com/ernie/ransack.git", :branch => 'rails-4'
+		## END RAILS4 Dependencies
 
 ### Add the `unknown-admin` gem
 
-    gem 'unknown_admin'
+    gem "unknown_admin",github:"unknown-dev/unknown_admin",branch:"rails4"
 
 ## Installation
 
@@ -36,10 +42,6 @@ It is possible that v8 engine libraries need to be installed
 Also run the unknown_admin generator to install the asset files for the admin-backend
 
     rails generate unknown_admin:install
-
-Add following line to one of your initializers, if you want to use strong parameters
-
-    ActiveRecord::Base.send(:include, ActiveModel::ForbiddenAttributesProtection)
 
 You can generate an admin controller by using... model must exist for this to work!
 

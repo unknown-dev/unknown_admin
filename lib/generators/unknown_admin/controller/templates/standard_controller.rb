@@ -4,9 +4,11 @@ module Admin
 
 
     private 
-      def <%=model_name%>_params
+      def permitted_params
         
-        params.require(:<%=model_name%>).permit(<%= columns.join(",") %>)
+        params.permit(<%=model_name%>:[<%= (columns-[":id",":created_at",":updated_at"]).join(",") %>])
+        #or permit everything
+        #params.permit!
       end
   end
 end
