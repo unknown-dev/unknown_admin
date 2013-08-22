@@ -15,7 +15,12 @@ module Admin
         rel = resource.send(list_field_item.first.first)
         resolved = rel.send(list_field_item.first.last)
       end
-      resolved
+      if resolved.respond_to?("mime_type") && resolved.mime_type.start_with?("image/") && resolved.respond_to?("thumb")
+        image_tag(resolved.thumb("80x80#").url,alt:"")
+      else
+        resolved
+      end
+
     end
     def resolve_field_name(list_field_item)
       case list_field_item
