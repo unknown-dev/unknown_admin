@@ -30,7 +30,22 @@ module Admin
     
 
     protected
-
+      # This method is responsable for building the object on :new and :create
+      # methods. If you overwrite it, don't forget to cache the result in an
+      # instance variable.
+      #
+      def build_resource
+        logger.debug "---------build info-----------"
+        logger.debug "Build Method: #{method_for_build}"
+        logger.debug "End of assoc: #{end_of_association_chain}"
+        logger.debug ""
+        get_resource_ivar || set_resource_ivar(end_of_association_chain.send(method_for_build, *resource_params))
+      end
+      def resource_params
+        return [] if request.get?
+        whitelist_method = :"#{ resource_request_name }_params"
+        [ self.send(whitelist_method) ]
+      end
       def collection
         if params[:rquery].nil?
           if end_of_association_chain.column_names.include? "position"
