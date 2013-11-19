@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin]+association_chain+[resource], :html => { :class => '', :multipart => true } do |f| %>
+<%= simple_form_for [:admin]+association_chain+[resource], :html => { role:"form",:class => '', :multipart => true } do |f| %>
 	<%= f.error_notification %>
 	<div class="form-inputs">
   <%= render :partial=>"form_fields",locals:{f:f} %>
