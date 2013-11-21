@@ -1,0 +1,21 @@
+<div class="media-heading node">
+  <%= node.name %> <a href="#" class="toggle_child_form" data-target="#child_form_<%= dom_id(node) %>"><i class="icon-plus"></i></a>
+  <span class="pull-right">
+    <%= render "tree_item_actions",{node:node} %>
+  </span>
+</div>
+
+
+<div id="child_form_<%= dom_id(node) %>" style="display:none">
+  <%= form_for [:admin]+association_chain+[node.children.new],:remote=>true do |f| %>
+    <%= f.hidden_field :parent_id %>
+    <div class="col-lg-4">
+      <div class="input-group">
+        <%= f.text_field :name,class:"form-control" %>
+        <div class="input-group-btn">
+          <%= f.submit "Create Subnode",:class=>"btn" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
