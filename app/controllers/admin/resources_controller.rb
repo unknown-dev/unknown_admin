@@ -29,7 +29,7 @@ module Admin
 
     
     def list_sort
-      params[:competition].each_with_index do |id, index|
+      params[resource_class.name.underscore.to_sym].each_with_index do |id, index|
         resource_class.update_all({position: index+1}, {id: id})
       end 
       render nothing:true
