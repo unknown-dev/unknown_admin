@@ -11,7 +11,7 @@ module UnknownAdmin
       def add_assets
 
         unless File.exist?('app/assets/javascripts/admin/admin.js')
-          copy_file "admin.js", "app/assets/javascripts/admin/admin.js"
+          copy_file "admin.js.coffee", "app/assets/javascripts/admin/admin.js.coffee"
         end
 
         unless File.exist?('app/assets/stylesheets/admin/admin.css')

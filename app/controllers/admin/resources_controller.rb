@@ -28,6 +28,13 @@ module Admin
     end
 
     
+    def list_sort
+      params[:competition].each_with_index do |id, index|
+        resource_class.update_all({position: index+1}, {id: id})
+      end 
+      render nothing:true
+    end
+    
 
     protected
 
