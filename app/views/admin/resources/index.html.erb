@@ -7,5 +7,5 @@
 <div id="list" >
   <%= render :partial=>"list" %>
 </div>
-<%= will_paginate collection %>
+<%= will_paginate collection, renderer: BootstrapPagination::Rails %>
 <%= render :partial=>"list_actions" %>

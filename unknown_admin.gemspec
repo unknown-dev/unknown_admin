@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency('has_scope', '~> 0.6.0.rc')
   ###########
   s.add_dependency('bootstrap-sass', '~> 3.0')
-  #s.add_dependency('bootstrap-will_paginate', '~> 0.0.9')
+  s.add_dependency('will_paginate-bootstrap', '~> 1.0.0')
   s.add_dependency('will_paginate', '~> 3.0')
 
 

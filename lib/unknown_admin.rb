@@ -9,6 +9,7 @@ module UnknownAdmin
     require "will_paginate"
     require "ransack"
     require "simple_form"
+    require "will_paginate-bootstrap"
     #require "strong_parameters"
   end
 end
