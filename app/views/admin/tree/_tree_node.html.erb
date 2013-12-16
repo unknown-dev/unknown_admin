@@ -4,7 +4,7 @@
   <% else %>
   <span><%= node.name %></span> 
   <% end %>
-  <a href="#" class="toggle_child_form" data-target="#child_form_<%= dom_id(node) %>"><i class="icon-plus"></i></a>
+  <a href="#" class="toggle_child_form" data-target="#child_form_<%= dom_id(node) %>"><i class="fa fa-plus"></i></a>
   <span class="pull-right">
     <%= render "tree_item_actions",{node:node} %>
   </span>
@@ -18,7 +18,7 @@
       <div class="input-group">
         <%= f.text_field :name,class:"form-control" %>
         <div class="input-group-btn">
-          <%= f.submit "Create Subnode",:class=>"btn" %>
+          <%= f.submit "Create Subnode",:class=>"btn btn-default" %>
         </div>
       </div>
     </div>
