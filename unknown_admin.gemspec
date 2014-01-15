@@ -28,10 +28,10 @@ Gem::Specification.new do |s|
 
 
   #search forms
-  s.add_dependency("ransack", '~> 0.7.3')
+  s.add_dependency("ransack", '~> 1.1.0')
 
   #simple forms
-  s.add_dependency("simple_form",'~> 3.0.0.rc')
+  s.add_dependency("simple_form",'~> 3.0.0')
 
   # rails 4 features
   #s.add_dependency("strong_parameters", '~> 0.1')
