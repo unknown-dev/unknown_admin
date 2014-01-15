@@ -6,7 +6,7 @@
 <div id="node_tree" >
   <% collection.each do |root_folder| %>
  		<%= div_for root_folder do %>
-    	<%= nested_nodes root_folder.subtree.arrange() %>
+    	<%= nested_nodes root_folder.subtree.arrange(order: default_order) %>
     <% end %>
   <% end %>
 </div>
