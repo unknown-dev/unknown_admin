@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
 
 
   #search forms
-  s.add_dependency("ransack", '~> 1.1.0')
+  s.add_dependency("ransack", '~> 1.1')
 
   #simple forms
   s.add_dependency("simple_form",'~> 3.0.0')
